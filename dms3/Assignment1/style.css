@@ -1,11 +1,56 @@
 *{
+    font-family: "Patrick Hand", cursive;
+    font-weight: lighter;
+    font-style: normal;
     box-sizing: border-box;
-    margin:0
+    margin:3px 15px;
+    
 }
 :root{
-    --col-01:black;
-    --col-02:white;
-    --col-03:rgb(65, 65, 118);
-    --col-04:rgb(50, 110, 70);
-    --border:single lrem var(--col02);
+    --col-01:#cbabcb;
+    --col-02:#4e425d;
+    --col-03:#e5fff1;
+    --col-04:#f8ffb5;
+    --border: single lrem var(--col-03);
+}
+
+h1 {
+    font-family: "Annie Use Your Telescope", cursive;
+    font-weight: bold;
+    font-style: normal;
+    color: var(--col-03);
+    text-align: center;
+}
+
+h2{
+    color: var(--col-02);
+    font-weight: bold;
+    text-align: center;
+    margin: 5px;
+}
+
+h3 {
+    color: var(--col-02);
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+body {
+    background-color: var(--col-01);
+}
+
+a {
+    color: var(--col-04);
+}
+
+div {
+    margin: 25px;
+    text-align: center;
+}
+
+video {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
 }
