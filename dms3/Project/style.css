@@ -1,0 +1,11 @@
+*{
+    box-sizing: border-box;
+    margin:0
+}
+:root{
+    --col-01:black;
+    --col-02:white;
+    --col-03:rgb(65, 65, 118);
+    --col-04:rgb(50, 110, 70);
+    --border:single lrem var(--col02);
+}
