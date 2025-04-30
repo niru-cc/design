@@ -18,7 +18,7 @@ body {
 } */
 
 #board {
-    margin-top: 3%;
+    margin-top: 2%;
     margin-left: 15%;
     width: 600px;
     height: 600px;
@@ -29,7 +29,7 @@ body {
 
 #toolbar {
     width: 20%;
-    height: 680px;
+    height: 665px;
     margin-left: auto;
     background-color: burlywood;
     display: flex;
@@ -39,8 +39,8 @@ body {
 }
 
 #colour {
-    height: 120px;
-    width: 120px;
+    height: 80px;
+    width: 80px;
     border: 5px solid white;
     border-radius: 50%;
 }
@@ -48,8 +48,7 @@ body {
 .tool {
     width: 200px;
     height: 75px;
-    background-color: rgba(255, 255, 255, 0);
-    border: 3px solid black;
+    
 }
 
 #pin {
@@ -57,9 +56,18 @@ body {
     border-radius: 50%;
 }
 
-#settings {
-    background-color: rgb(255, 0, 89);
+#moretools {
+    background-color: rgb(230, 253, 255);
     width: 100%;
-    height: 15px;
+    height: 40px;
     margin-top: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bar {
+    width: 50px;
+    height: 25px;
+    background-color: darkblue;
 }
