@@ -9,5 +9,13 @@ colourpicker.addEventListener("input", pickedColour);
 function pickedColour(e){
     let newColour = e.target.value;
     console.log(e);
-    document.getElementById("three").style.backgroundColor = newColour;
+    document.getElementById("pin").style.backgroundColor = newColour;
 };
+
+function addPin(){
+    let pin = new Konva.Circle({
+        x: 5,
+        y: 5,
+        draggable: true
+    });
+}
