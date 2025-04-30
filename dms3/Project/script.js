@@ -13,6 +13,7 @@ let newColour = "black";
 function pickedColour(e){
     newColour = e.target.value;
     pin.fill = e.target.value;
+    string.stroke = e.target.value;
     console.log(e);
     document.getElementById("three").style.backgroundColor = newColour;
     document.getElementById("two").style.backgroundColor = newColour;
@@ -20,17 +21,30 @@ function pickedColour(e){
     document.getElementById("pin").style.backgroundColor = newColour;
 };
 
+let stringWidth = 1;
+function brushSize(){
+
+};
+
+// click on one of the three divs
+// line width will change based on which is clicked
+
+// make adding lines functional first
+
+let stringLayer = new Konva.Layer();
+stage.add(stringLayer);
+
 let newLayer = new Konva.Layer();
 stage.add(newLayer);
 
-//let pinLayer = new Konva.layer();
-
 let pin = {
-    radius: 20,
+    radius: 15,
     fill: newColour,
     draggable: true,
     x: stage.width()/2,
     y: stage.height()/2,
+    shadowBlur: 5,
+    shadowOpacity: 0.3,
 };
 
 document.getElementById("pin").addEventListener("click",newPin);
@@ -43,12 +57,13 @@ function newPin(){
     console.log(addPin);
 };
 
-let stringLayer = new Konva.layer();
-stage.add(stringLayer);
-moveToTop(newLayer);
+let stringPos = [0, 0, 20, 20];
 
 let string = {
-    fill: newColour
+    stroke: newColour,
+    points: stringPos,
+    x: stage.width()/2,
+    y: stage.height()/2,
 }
 
 document.getElementById("three").addEventListener("click",newString);
@@ -57,5 +72,6 @@ document.getElementById("one").addEventListener("click",newString);
 
 function newString(){
     let addString = new Konva.Line(string);
-    newLayer.add(addString);
+    stringLayer.add(addString);
+    console.log(addString);
 }

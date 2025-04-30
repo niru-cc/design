@@ -35,20 +35,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
 }
 
 #colour {
     height: 80px;
     width: 80px;
-    border: 5px solid white;
-    border-radius: 50%;
+    border: 5px solid rgb(0, 0, 0);
 }
 
 .tool {
     width: 200px;
     height: 75px;
-    
+}
+
+#pickcolour {
+    margin-top: 5%;
+}
+
+#colour, .tool, #pickcolour {
+    margin-bottom: 7%;
 }
 
 #pin {
