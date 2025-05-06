@@ -61,6 +61,8 @@ let stringPos = [0, 0, 80, 0];
 let selectedPins = [];
 let maxSelect = 2;
 function selection() {
+    pin.on("click", => {
+        selectedPins.push[1, 0]})
     if(selectedPins.length === maxSelect) {
     selectedPins.shift();
     console.log(selectedPins);
