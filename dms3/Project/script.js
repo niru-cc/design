@@ -20,7 +20,7 @@ function pickedColour(e){
     document.getElementById("pin").style.backgroundColor = newColour;
 };
 
-let stringWidth = 1;
+let stringWidth = 8;
 
 let stringLayer = new Konva.Layer();
 stage.add(stringLayer);
@@ -28,6 +28,7 @@ let newLayer = new Konva.Layer();
 stage.add(newLayer);
 
 let pinId = 0;
+//let stringId = 0;
 
 let pin = {
     radius: 15,
@@ -42,7 +43,7 @@ let pin = {
 
 let x1 = pin.x;
 let y1 = pin.y;
-var pinPos = [x1, y1];
+// let pointA = [x1, y1, 0, 0];
 
 //assign pin id upon creating, from 1
 document.getElementById("pin").addEventListener("click",newPin);
@@ -51,20 +52,24 @@ function newPin(){
     pinId = pinId + 1;
     console.log(pinId);
     newLayer.add(addPin);
-    console.log(addPin); 
 }
 
-let stringPos = [0, 0, 50, 50];
+//let pinAdding = newPin();
+let stringPos = [0, 0, 80, 0];
 
-function updPinPos() {
-    pinPos.on()
-    console.log(pin.x);
-    console.log(pin.y);
-}
+/* array for selected pins (max 2)
+let selectedPins = [];
+let maxSelect = 2;
+function selection() {
+    if(selectedPins.length === maxSelect) {
+    selectedPins.shift();
+    console.log(selectedPins);
+    }
+    selectedPins.push();
+}*/
 
 // click on one of the three divs
 // line width will change based on which is clicked
-
 document.getElementById("three").addEventListener("click",brushSize);
 document.getElementById("two").addEventListener("click",brushSize);
 document.getElementById("one").addEventListener("click",brushSize);
@@ -87,6 +92,7 @@ let string = {
     shadowBlur: 7,
     shadowOpacity: 0.2,
     strokeWidth: stringWidth,
+    //id: stringId,
 }
 
 document.getElementById("three").addEventListener("click",newString);
@@ -96,5 +102,57 @@ document.getElementById("one").addEventListener("click",newString);
 function newString(){
     let addString = new Konva.Line(string);
     stringLayer.add(addString);
-    console.log(addString);
+    //stringId = stringId + 1;
 }
+
+/* 
+let stringAdding = newString();
+function updPinPos() {
+    pinAdding.forEach((pin) => {
+        const node = newLayer.findOne("#" + pin.id);
+        node.x(pin.x);
+        node.y(pin.y);
+    });
+    stringAdding.forEach((string) => {
+        const line = stringLayer.findOne("#" + string.id);
+        fromNode = stringLayer.findOne("#" + string.from);
+        
+    })
+}
+*/
+
+// stage.getContext is not a function.
+/* Undo function
+let undoStack = [];
+let currentState = stage.toDataURL();
+let undoLimit = 5;
+function saveUndoState() {
+    if(undoStack.length === undoLimit) {
+        undoStack.shift();
+    }
+    undoStack.push(currentState);
+    currentState = stage.toDataURL();
+}
+const ctx = stage.getContext("2d");
+ctx.globalCompositeOperation = "source-over";
+function drawDataURLToCanvas(imgDataURL) {
+    let img2Draw = new Image();
+    img2Draw.addEventListener("load", function drawOnLoad(){
+    ctx.clearRect(0, 0, stage.width, stage.height);
+    ctx.drawImage(img2Draw, 0, 0);
+    stage.batchDraw();
+    img2Draw.removeEventListener("load", drawOnLoad);
+    img2Draw.remove();
+    });
+    img2Draw.src = imgDataURL;
+}
+function undo() {
+    if (undoStack.length > 0) {
+        let newState = undoStack.pop();
+        currentState = newState;
+        drawDataURLToCanvas(newState);
+    }
+}
+document.getElementById("undo").addEventListener("click", () => {
+    undo();
+});*/
