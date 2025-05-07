@@ -53,20 +53,16 @@ let y1 = pin.y;
 let pointA = [x1, y1];
 
 // use a for loop to log all pin id's in a single array
-// array for selected pins (max 2)
 // let allPins = Konva.Circle(pin);
 let createdPins = [];
 
-//assign pin id upon creating, from 1
-// keep the id's just in case, but removed logging them 
 document.getElementById("pin").addEventListener("click",newPin);
 function newPin(){
     let addPin = new Konva.Circle(pin);
     pinId = pinId + 1;
     newLayer.add(addPin);
     createdPins.push(addPin);
-    console.log(createdPins);
-}
+};
 
 /*let maxSelect = 2;
 function selection() {
@@ -78,19 +74,8 @@ function selection() {
     console.log(selectedPins);
 }*/
 
-
-//
-function trackPins() {
-    Konva.Circle.on("dragmove", updPinPos)
-    function updPinPos() {
-        x1 = pin.x;
-        y1 = pin.y;
-    }
-    console.log(pointA);
-}
-
 //let pinAdding = newPin();
-let stringPos = [0, 0, 80, 20];
+let stringPos = [0, 0, 20, 20];
 
 // click on one of the three divs
 // line width will change based on which is clicked
@@ -99,7 +84,6 @@ document.getElementById("two").addEventListener("click",brushSize);
 document.getElementById("one").addEventListener("click",brushSize);
 
 // setting stroke width of string
-
 function brushSize(){
     if (widthSetting.id = "three") {
         stringWidth = 12
@@ -118,7 +102,7 @@ let string = {
     shadowBlur: 7,
     shadowOpacity: 0.2,
     strokeWidth: stringWidth,
-    id: stringId,
+    //id: stringId,
 }
 
 document.getElementById("three").addEventListener("click",newString);
@@ -129,27 +113,38 @@ document.getElementById("one").addEventListener("click",newString);
 function newString(){
     let addString = new Konva.Line(string);
     stringLayer.add(addString);
-    stringId = stringId + 1;
+    //stringId = stringId + 1;
 }
 
 // on("dragmove") stringUpd
 // getId("pin").add event listener "click", stringUpd
 function stringUpd() {
     //look through createdPins.
-    // look for min 2 in array (if pinarray.length)
+    // look for min 2 in array (if pinarray.length) /
+    console.log(createdPins);
+    //i will refer to the second pin in the array. if 1 is lower than the number of pins created, i keeps going up until it reaches the number of pins created. pin1 is the second latest pin. while pin2 is the current latest pin
+    //
     if (createdPins.length > 1) {
-       // for loop to find latest item in array and latest -1
-       // start loop at 1/i = 1
-       // array[x - 2]
-       for(let i=0; i < createdPins; i++) {
-        let pin1 = createdPins[i];
-        let pin2 = createdPins[i - 1];
-        console.log(createdPins[i- 1]);
-        console.log(createdPins[i]);
-    }
-    }
-    
-}
+        for(let i = 1; i < createdPins; i++) {
+        let pin1 = createdPins[i - 1];
+        let pin2 = createdPins[i];
+        console.log(pin1);
+        console.log(pin2);
+        //find all strings and remove them
+    }};}
+    // for loop to find latest item in array and latest -1
+    // start loop at 1/i = 1
+
+//array.from(doc.getbyclass,, for each (element
+//element.add event)
+
+Array.from(document.getElementsByClassName("width")).forEach (wBtn => {
+    wBtn.addEventListener("click"), stringUpd;
+})
+
+document.getElementById("three").addEventListener("click", stringUpd);
+
+//document.getElementsByClassName("width").addEventListener("click", stringUpd);
 
 /*let stringAdding = newString();
 function updPinPos() {
@@ -161,14 +156,12 @@ function updPinPos() {
     stringAdding.forEach((string) => {
         const string = stringLayer.findOne("#" + string.id);
         fromNode = stringLayer.findOne("#" + string.from);
-        
-    })
-}*/
+    })}*/
 // string.points([0, 0, pinPos])
 
+// Undo function
 // stage.getContext is not a function.
 // changed "stage" to "canvas"
-// Undo function
 let undoStack = [];
 let currentState = canvas.toDataURL();
 let undoLimit = 5;
