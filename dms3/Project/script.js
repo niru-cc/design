@@ -50,13 +50,13 @@ let pin = {
 
 let x1 = pin.x;
 let y1 = pin.y;
-let pointA = [x1, y1];
 
 // use a for loop to log all pin id's in a single array
 // let allPins = Konva.Circle(pin);
 let createdPins = [];
 
 document.getElementById("pin").addEventListener("click",newPin);
+document.getElementById("pin").addEventListener("click",stringUpd);
 function newPin(){
     let addPin = new Konva.Circle(pin);
     pinId = pinId + 1;
@@ -121,15 +121,16 @@ function newString(){
 function stringUpd() {
     //look through createdPins.
     // look for min 2 in array (if pinarray.length) /
-    console.log(createdPins);
+    console.log(createdPins.length);
     //i will refer to the second pin in the array. if 1 is lower than the number of pins created, i keeps going up until it reaches the number of pins created. pin1 is the second latest pin. while pin2 is the current latest pin
     //
+    for(let i = 1; i < createdPins; i++) {
+    let pin1 = createdPins[i - 1];
+    let pin2 = createdPins[i];
+    stringPos = pin1, pin2;
+    console.log(createdPins[i]);
     if (createdPins.length > 1) {
-        for(let i = 1; i < createdPins; i++) {
-        let pin1 = createdPins[i - 1];
-        let pin2 = createdPins[i];
-        console.log(pin1);
-        console.log(pin2);
+        
         //find all strings and remove them
     }};}
     // for loop to find latest item in array and latest -1
@@ -138,13 +139,11 @@ function stringUpd() {
 //array.from(doc.getbyclass,, for each (element
 //element.add event)
 
-Array.from(document.getElementsByClassName("width")).forEach (wBtn => {
-    wBtn.addEventListener("click"), stringUpd;
+Array.from(document.getElementsByClassName("width")).forEach(wBtn => {
+    wBtn.addEventListener("click",stringUpd);
 })
 
-document.getElementById("three").addEventListener("click", stringUpd);
-
-//document.getElementsByClassName("width").addEventListener("click", stringUpd);
+//document.getElementById("three").addEventListener("click", stringUpd);
 
 /*let stringAdding = newString();
 function updPinPos() {
