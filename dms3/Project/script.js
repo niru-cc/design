@@ -4,6 +4,11 @@ let stage = new Konva.Stage({
     height: 600,
 });
 
+// canvas was needed for importing images apparently, but this lead to a string being created at the start automatically. for some reason.
+const canvas = document.createElement("canvas");
+canvas.width = stage.width();
+canvas.height = stage.height();
+
 let colourpicker = document.getElementById("colour");
 colourpicker.addEventListener("input", pickedColour);
 
@@ -57,18 +62,17 @@ function newPin(){
 //let pinAdding = newPin();
 let stringPos = [0, 0, 80, 0];
 
-/* array for selected pins (max 2)
+// array for selected pins (max 2)
 let selectedPins = [];
 let maxSelect = 2;
 function selection() {
-    pin.on("click", => {
-        selectedPins.push[1, 0]})
-    if(selectedPins.length === maxSelect) {
+    Konva.Circle.on(("click"),selectedPins.push(pin.id));
+    if (selectedPins.length === maxSelect) {
     selectedPins.shift();
     console.log(selectedPins);
     }
     selectedPins.push();
-}*/
+}
 
 // click on one of the three divs
 // line width will change based on which is clicked
@@ -76,10 +80,12 @@ document.getElementById("three").addEventListener("click",brushSize);
 document.getElementById("two").addEventListener("click",brushSize);
 document.getElementById("one").addEventListener("click",brushSize);
 
+// setting stroke width of string
+// $ is not defined
 function brushSize(){
-    if (("button").id = "three") {
+    if ($("#button").id = "three") {
         stringWidth = 12
-    } else if (("button").id = "two") {
+    } else if ($("#button").id = "two") {
         stringWidth = 8
     } else {
         stringWidth = 3
@@ -107,7 +113,7 @@ function newString(){
     //stringId = stringId + 1;
 }
 
-/* 
+ 
 let stringAdding = newString();
 function updPinPos() {
     pinAdding.forEach((pin) => {
@@ -121,28 +127,29 @@ function updPinPos() {
         
     })
 }
-*/
+
 
 // stage.getContext is not a function.
-/* Undo function
+// changed "stage" to "canvas"
+// Undo function
 let undoStack = [];
-let currentState = stage.toDataURL();
+let currentState = canvas.toDataURL();
 let undoLimit = 5;
 function saveUndoState() {
     if(undoStack.length === undoLimit) {
         undoStack.shift();
     }
     undoStack.push(currentState);
-    currentState = stage.toDataURL();
+    currentState = canvas.toDataURL();
 }
-const ctx = stage.getContext("2d");
+const ctx = canvas.getContext("2d");
 ctx.globalCompositeOperation = "source-over";
 function drawDataURLToCanvas(imgDataURL) {
     let img2Draw = new Image();
     img2Draw.addEventListener("load", function drawOnLoad(){
-    ctx.clearRect(0, 0, stage.width, stage.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(img2Draw, 0, 0);
-    stage.batchDraw();
+    canvas.batchDraw();
     img2Draw.removeEventListener("load", drawOnLoad);
     img2Draw.remove();
     });
@@ -157,4 +164,4 @@ function undo() {
 }
 document.getElementById("undo").addEventListener("click", () => {
     undo();
-});*/
+});
