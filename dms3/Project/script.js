@@ -4,7 +4,7 @@ let stage = new Konva.Stage({
     height: 600,
 });
 
-// canvas was needed for importing images apparently, but this lead to a string being created at the start automatically. for some reason.
+// canvas was needed for importing images apparently, but this lead to a string/line being created at the start automatically. for some reason.
 const canvas = document.createElement("canvas");
 canvas.width = stage.width();
 canvas.height = stage.height();
@@ -12,7 +12,9 @@ canvas.height = stage.height();
 let colourpicker = document.getElementById("colour");
 colourpicker.addEventListener("input", pickedColour);
 
-let widthSetting = document.getElementsByClassName("width");
+let three = document.getElementById("three");
+let two = document.getElementById("two");
+let one = document.getElementById("one");
 
 let newColour = "black";
 
@@ -21,9 +23,9 @@ function pickedColour(e){
     pin.fill = e.target.value;
     string.stroke = e.target.value;
     //console.log(e);
-    document.getElementById("three").style.backgroundColor = newColour;
-    document.getElementById("two").style.backgroundColor = newColour;
-    document.getElementById("one").style.backgroundColor = newColour;
+    three.style.backgroundColor = newColour;
+    two.style.backgroundColor = newColour;
+    one.style.backgroundColor = newColour;
     document.getElementById("pin").style.backgroundColor = newColour;
 };
 
@@ -48,9 +50,6 @@ let pin = {
     id: pinId,
 };
 
-let x1 = pin.x;
-let y1 = pin.y;
-
 // use a for loop to log all pin id's in a single array
 // let allPins = Konva.Circle(pin);
 let createdPins = [];
@@ -64,7 +63,8 @@ function newPin(){
     createdPins.push(addPin);
 };
 
-/*let maxSelect = 2;
+/* attempted pin select
+let maxSelect = 2;
 function selection() {
     // Konva.Circle.on("click",selectedPins.push(pin.id));
     if (selectedPins.length === maxSelect) {
@@ -79,18 +79,18 @@ let stringPos = [0, 0, 20, 20];
 
 // click on one of the three divs
 // line width will change based on which is clicked
-document.getElementById("three").addEventListener("click",brushSize);
-document.getElementById("two").addEventListener("click",brushSize);
-document.getElementById("one").addEventListener("click",brushSize);
+three.addEventListener("click",brushSize);
+two.addEventListener("click",brushSize);
+one.addEventListener("click",brushSize);
 
 // setting stroke width of string
-function brushSize(){
-    if (widthSetting.id = "three") {
-        stringWidth = 12
-    } else if (widthSetting.id = "two") {
-        stringWidth = 8
+function brushSize(widthSetting){
+    if (widthSetting === three) {
+        string.strokeWidth = 12
+    } else if (widthSetting === two) {
+        string.strokeWidth = 8
     } else {
-        stringWidth = 3
+        string.strokeWidth = 3
     };
 };
 
@@ -105,45 +105,46 @@ let string = {
     //id: stringId,
 }
 
-document.getElementById("three").addEventListener("click",newString);
-document.getElementById("two").addEventListener("click",newString);
-document.getElementById("one").addEventListener("click",newString);
+three.addEventListener("click",newString);
+two.addEventListener("click",newString);
+one.addEventListener("click",newString);
 
 // function for updating strings, look through pinarray. call when moving + creating pins
 function newString(){
     let addString = new Konva.Line(string);
-    stringLayer.add(addString);
+    if (createdPins.length > 1) {
+        stringLayer.add(addString)};
     //stringId = stringId + 1;
 }
 
-// on("dragmove") stringUpd
-// getId("pin").add event listener "click", stringUpd
+document.getElementById("pin").addEventListener("dragmove", stringUpd);
+
 function stringUpd() {
     //look through createdPins.
     // look for min 2 in array (if pinarray.length) /
     console.log(createdPins.length);
     //i will refer to the second pin in the array. if 1 is lower than the number of pins created, i keeps going up until it reaches the number of pins created. pin1 is the second latest pin. while pin2 is the current latest pin
-    //
-    for(let i = 1; i < createdPins; i++) {
+    for(let i = 1; i < createdPins.length; i++) {
     let pin1 = createdPins[i - 1];
     let pin2 = createdPins[i];
-    stringPos = pin1, pin2;
-    console.log(createdPins[i]);
     if (createdPins.length > 1) {
-        
-        //find all strings and remove them
+        console.log(pin1.x());
+        // the x of everything that has been pin1 seems to get logged.
+        string.x = pin1.x();
+        string.y = pin1.y();
+        string.points = [pin1.x(), pin1.y(), pin2.x(), pin2.y()];
+        // points of string correspond to pin position, but only in some unknown way???
+        // find all strings and remove them?
+        canvas.remove(stringLayer);
     }};}
-    // for loop to find latest item in array and latest -1
-    // start loop at 1/i = 1
 
 //array.from(doc.getbyclass,, for each (element
 //element.add event)
-
+/* class width array
 Array.from(document.getElementsByClassName("width")).forEach(wBtn => {
     wBtn.addEventListener("click",stringUpd);
 })
-
-//document.getElementById("three").addEventListener("click", stringUpd);
+*/
 
 /*let stringAdding = newString();
 function updPinPos() {
