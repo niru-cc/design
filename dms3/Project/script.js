@@ -163,11 +163,12 @@ function updPinPos() {
     stringAdding.forEach((string) => {
         const string = stringLayer.findOne("#" + string.id);
         fromNode = stringLayer.findOne("#" + string.from);
-    })}*/
+})}*/
+
+
 
 // Undo function
-// stage.getContext is not a function.
-// changed "stage" to "canvas"
+/*
 let undoStack = [];
 let currentState = canvas.toDataURL();
 let undoLimit = 5;
@@ -200,6 +201,8 @@ function undo() {
 }
 document.getElementById("undo").addEventListener("click", () => {
     undo();
-}); 
+});*/
+
+
 
 // importing images from input=file ???

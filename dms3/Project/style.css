@@ -1,7 +1,7 @@
 *{
     box-sizing: border-box;
     margin:0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Funnel-Display", "Arial Narrow", sans-serif;
 }
 
 body {
@@ -75,4 +75,35 @@ body {
     width: 100px;
     height: 25px;
     background-color: rgb(181, 228, 255);
+}
+
+#sidepage {
+    display: block;
+    color: white;
+}
+
+#returnmain {
+    margin: 30px;
+}
+
+#back, #back:visited {
+    color: white;
+}
+
+#vislist {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.25);
+    align-self: center;
+    margin: auto;
+    padding: 60px;
+    max-width: 70%;
+    height: auto;
+    align-items: center;
+    justify-content: space-between;
+}
+.setvis {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 5px solid white;
 }
