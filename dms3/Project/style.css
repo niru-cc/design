@@ -71,7 +71,7 @@ body {
     justify-content: space-around;
 }
 
-.bar, #upload  {
+.bar  {
     width: 100px;
     height: 25px;
     background-color: rgb(181, 228, 255);
