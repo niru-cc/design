@@ -10,12 +10,10 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/konva@9/konva.min.js" defer></script>
     <script src="script.js" defer></script>
+    <script src="styleswitch.js" defer></script>
 </head>
 
-<body>
-    <!-- <header>
-        <h1>Assignment 3</h1>
-    </header> -->
+<body id="mainb">
     <div id="board"></div>
     <div id="toolbar">
         <p id="pickcolour">Choose a colour</p>
@@ -29,7 +27,18 @@
     <div id="moretools">
         <button class="bar" id="save">Save</button>
         <input type="file" accept="image/png, image.jpeg" class="bar" id="upload">
-        <button class="bar" id="visuals"><a href="vis.html">Customise</a></button>
+        <button class="bar" id="visuals">Customise</button>
+    </div>
+
+    <div id="vislist" class="hidden visualslist">
+        <button class="setvis" id="set1"></button>
+        <button class="setvis" id="set2"></button>
+        <button class="setvis" id="set3"></button>
+        <button class="setvis" id="set4"></button>
+        <button class="setvis" id="set5"></button>
+        <button class="setvis" id="set6"></button>
+        <button class="setvis" id="set7"></button>
+        <button class="setvis" id="set8"></button>
     </div>
 </body>
 </html>

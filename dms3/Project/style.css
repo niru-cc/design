@@ -5,36 +5,30 @@
 }
 
 body {
-    background-color: rgb(36, 35, 59);
+    background-color: beige;
     display: flex;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
-/*header {
-    color: white;
-    justify-content: center;
-    width: 100%;
-    margin: 30px;
-} */
-
 #board {
+    position: absolute;
     margin-top: 2%;
     margin-left: 15%;
     width: 600px;
     height: 600px;
-    background-color: aliceblue;
-    outline: 3px solid lightblue;
-    border-image-outset: 6px;
+    background-image: url(img/bg.png);
+    outline: 7px solid rgb(69, 49, 40);
 }
 
 #toolbar {
     width: 20%;
-    height: 665px;
     margin-left: auto;
     background-color: burlywood;
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 800px;
 }
 
 #colour {
@@ -64,7 +58,9 @@ body {
 #moretools {
     background-color: rgb(48, 72, 106);
     width: 100%;
-    height: 40px;
+    height: 7%;
+    bottom: 0;
+    position: fixed;
     margin-top: auto;
     display: flex;
     align-items: center;
@@ -77,33 +73,79 @@ body {
     background-color: rgb(181, 228, 255);
 }
 
-#sidepage {
-    display: block;
-    color: white;
-}
-
-#returnmain {
-    margin: 30px;
-}
-
-#back, #back:visited {
-    color: white;
-}
-
-#vislist {
+.visualslist {
     display: flex;
-    background-color: rgba(255, 255, 255, 0.25);
-    align-self: center;
-    margin: auto;
-    padding: 60px;
+    flex-wrap: wrap;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.75);
+    outline: 5px solid black;
+    /* align-self: center; */
+    margin-top: 6%;
+    margin-left: 15%;
+    padding: 5%;
     max-width: 70%;
-    height: auto;
+    max-height: 70%;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    overflow: scroll;
 }
 .setvis {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     border: 5px solid white;
+    margin: 4%;
+}
+
+#set1 {
+    background-color: beige;
+}
+#set1:hover {
+    background-color: rgb(148, 159, 147);
+}
+#set2 {
+    background-image: url(img/o2i.png);
+}
+#set2:hover {
+    background-image: url(img/o2ii.png);
+}
+#set3 {
+    background-image: url(img/o3i.png);
+}
+#set3:hover {
+    background-image: url(img/o3ii.png);
+}
+#set4 {
+    background-image: url(img/o4i.png);
+}
+#set4:hover {
+    background-image: url(img/o4ii.png);
+}
+#set5 {
+    background-image: url(img/o5i.png);
+}
+#set5:hover {
+    background-image: url(img/o5ii.png);
+}
+#set6 {
+    background-image: url(img/o6i.png);
+}
+#set6:hover {
+    background-image: url(img/o6ii.png);
+}
+#set7 {
+    background-image: url(img/o7i.png);
+}
+#set7:hover {
+    background-image: url(img/o7ii.png);
+}
+#set8 {
+    background-image: url(img/o8i.png);
+}
+#set8:hover {
+    background-image: url(img/o8ii.png);
+}
+
+.hidden {
+    display: none;
 }
