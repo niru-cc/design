@@ -14,15 +14,16 @@ let toolbar = document.getElementById("toolbar");
 // based on how the stroke width could be changed
 o1.addEventListener("click", () => {
     docBody.style.backgroundImage = "none";
-    docBody.style.backgroundColor = "beige";
+    docBody.style.backgroundColor = "bisque";
+    lowbar.style.backgroundColor = "rgb(133, 93, 78)";
+    toolbar.style.backgroundColor = "rgb(70, 57, 38)";
 });
 
 function changebg(img) {
      docBody.style.backgroundImage = img;
 }
 function changebar(cola) {
-    lowbar.style.backgroundcolor = cola;
-    
+    lowbar.style.backgroundColor = cola; 
 }
 function changetools(colb) {
     toolbar.style.backgroundColor = colb;
@@ -30,38 +31,38 @@ function changetools(colb) {
 
 o2.addEventListener("click", () => {
     changebg("url(img/o2.png)");
-    changebar("");
-    changetools("");
+    changebar("#1A2940");
+    changetools("#233F6A");
 });
 o3.addEventListener("click", () => {
     changebg("url(img/o3.png)");
-    changebar("");
-    changetools("");
+    changebar("#664C46");
+    changetools("#A84C43");
 });
 o4.addEventListener("click", () => {
     changebg("url(img/o4.png)");
-    changebar("");
-    changetools("");
+    changebar("#6A5077");
+    changetools("#2C3035");
 });
 o5.addEventListener("click", () => {
     changebg("url(img/o5.png)");
-    changebar("");
-    changetools("");
+    changebar("#885157");
+    changetools("#F09C72");
 });
 o6.addEventListener("click", () => {
     changebg("url(img/o6.png)");
-    changebar("");
-    changetools("");
+    changebar("#885157");
+    changetools("#C6B29E");
 });
 o7.addEventListener("click", () => {
     changebg("url(img/o7.png)");
-    changebar("");
-    changetools("");
+    changebar("#59564A");
+    changetools("#8FB05C");
 });
 o8.addEventListener("click", () => {
     changebg("url(img/o8.png)");
-    changebar("");
-    changetools("");
+    changebar("#476A63");
+    changetools("#709780");
 });
 
 // Opening the menu
