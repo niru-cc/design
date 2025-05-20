@@ -1,7 +1,7 @@
 *{
     box-sizing: border-box;
     margin:0;
-    font-family: "Funnel-Display", "Arial Narrow", sans-serif;
+    font-family: "Delius", "Arial Narrow", sans-serif;
 }
 
 body {
@@ -13,24 +13,26 @@ body {
 
 #board {
     position: absolute;
-    margin-top: 2%;
-    margin-left: 15%;
-    width: 600px;
-    height: 600px;
+    margin-top: 8%;
+    margin-left: 22%;
+    width: 500px;
+    height: 500px;
     background-image: url(img/bg.png);
     outline: 12px solid rgb(69, 49, 40);
-    box-shadow: 0px 0px 12px 8px;
+    box-shadow: 0px 0px 12px 12px;
 }
 
 #toolbar {
     width: 20%;
     margin-left: auto;
+    margin-top: 60px;
     background-color: rgb(133, 93, 78);
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 800px;
+    height: 700px;
     color: white;
+    box-shadow: 0px 0px 5px 2px black;
 }
 
 #colour {
@@ -39,42 +41,57 @@ body {
     border: 5px solid rgb(0, 0, 0);
 }
 
+#three {
+    width: 220px;
+    height: 85px;
+}
+#two {
+    width: 180px;
+    height: 65px;
+}
+#one {
+    width: 160px;
+    height: 55px;
+}
+
+.tooltxt {
+    margin-top: 10px;
+}
+
+#colour, .tool, .tooltxt, #visuals, .thread {
+    margin-bottom: 15px;
+}
+
 .tool {
-    width: 200px;
-    height: 75px;
-}
-
-#pickcolour {
-    margin-top: 5%;
-}
-
-#colour, .tool, #pickcolour {
-    margin-bottom: 7%;
+    font-weight: 600;
+    font-size: 20px;
+    color: white;
 }
 
 #pin {
+    height: 75px;
     width: 75px; 
     border-radius: 50%;
 }
 
-#moretools {
+#head {
     background-color: rgb(70, 57, 38);
     width: 100%;
-    height: 7%;
-    bottom: 0;
+    height: 60px;
+    top: 0;
     position: fixed;
-    margin-top: auto;
     display: flex;
     align-items: center;
     justify-content: space-around;
-}
+} 
 
-.bar  {
+#visuals  {
     width: 100px;
-    height: 25px;
+    height: 70px;
+    font-size: large;
     background-color: rgb(236, 236, 236);
 }
-.bar:hover {
+#visuals:hover {
     background-color: rgb(173, 173, 173);
 }
 
@@ -106,7 +123,7 @@ body {
     background-color: bisque;
 }
 #set1:hover {
-    background-color: rgb(151, 167, 130);
+    background-color: rgb(171, 175, 142);
 }
 #set2 {
     background-image: url(img/o2i.png);

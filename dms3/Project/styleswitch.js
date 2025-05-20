@@ -8,7 +8,7 @@ let o7 = document.getElementById("set7");
 let o8 = document.getElementById("set8");
 
 let docBody = document.getElementById("mainb");
-let lowbar = document.getElementById("moretools");
+let header = document.getElementById("head");
 let toolbar = document.getElementById("toolbar");
 
 // based on how the stroke width could be changed
@@ -23,7 +23,7 @@ function changebg(img) {
      docBody.style.backgroundImage = img;
 }
 function changebar(cola) {
-    lowbar.style.backgroundColor = cola; 
+    header.style.backgroundColor = cola; 
 }
 function changetools(colb) {
     toolbar.style.backgroundColor = colb;
@@ -51,7 +51,7 @@ o5.addEventListener("click", () => {
 });
 o6.addEventListener("click", () => {
     changebg("url(img/o6.png)");
-    changebar("#885157");
+    changebar("#614E4A");
     changetools("#C6B29E");
 });
 o7.addEventListener("click", () => {

@@ -6,7 +6,7 @@
     <title>Mediated Expression- Sakura Phoparisut</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/konva@9/konva.min.js" defer></script>
     <script src="script.js" defer></script>
@@ -14,20 +14,18 @@
 </head>
 
 <body id="mainb">
+    <header id="head"></header>
     <div id="board"></div>
-    <div id="toolbar">
-        <p id="pickcolour">Choose a colour</p>
-        <input type="color" id="colour">
-        <button class="tool" class="width" id="three"></button>
-        <button class="tool" class="width" id="two"></button>
-        <button class="tool" class="width" id="one"></button>
-        <button class="tool" id="pin"></button>
-    </div>
 
-    <div id="moretools">
-        <button class="bar" id="save">Save</button>
-        <!-- <input type="file" accept="image/png, image.jpeg" class="bar" id="upload"> -->
-        <button class="bar" id="visuals">Customise</button>
+    <div id="toolbar">
+        <p class="tooltxt">Choose a colour</p>
+        <input type="color" id="colour">
+        <p class="tooltxt">Add string</p>
+        <button class="tool width" id="three"></button>
+        <button class="tool width" id="two"></button>
+        <button class="tool width" id="one"></button>
+        <button class="tool" id="pin">Place Pin</button>
+        <button id="visuals">Customise Menu</button>
     </div>
 
     <div id="vislist" class="hidden visualslist">

@@ -1,13 +1,14 @@
 let stage = new Konva.Stage({
     container: "board",
-    width: 600,
-    height: 600,
+    width: 500,
+    height: 500,
 });
 
 // canvas was needed for importing images apparently, but this lead to a string/line being created at the start automatically. for some reason.
 const canvas = document.createElement("canvas");
 canvas.width = stage.width();
 canvas.height = stage.height();
+const ctx = canvas.getContext("2d");
 
 let colourpicker = document.getElementById("colour");
 colourpicker.addEventListener("input", pickedColour);
@@ -42,7 +43,7 @@ stage.add(newLayer);
 two.addEventListener("click",brushSize);
 one.addEventListener("click",brushSize);
 
-// always defaults to 3 which means what. the div being clicked isn't the third or second???
+always defaults to 3 which means what. the div being clicked isn't the third or second???
 function brushSize(clicked){
     if (clicked == three) {
         string.strokeWidth = 12
@@ -70,7 +71,7 @@ let pin = {
     x: stage.width()/2,
     y: stage.height()/2,
     shadowBlur: 5,
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.5,
 };
 
 let createdPins = [];
@@ -99,12 +100,9 @@ let stringPos = [0, 0, 20, 20];
 let string = {
     stroke: newColour,
     points: stringPos,
-    //x: stage.width()/2,
-    //y: stage.height()/2,
     shadowBlur: 7,
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.4,
     strokeWidth: stringWidth,
-    //id: stringId,
 }
 
 three.addEventListener("click",newString);
@@ -142,16 +140,6 @@ function delString () {
     };
     
 
-//pin.addEventListener("drag", stringUpd); - old
-
-//array.from(doc.getbyclass,, for each (element
-//element.add event)
-/* class width array
-Array.from(document.getElementsByClassName("width")).forEach(wBtn => {
-    wBtn.addEventListener("click",stringUpd);
-})
-*/
-
 /* attempted adding string (old)
 let stringAdding = newString();
 function updPinPos() {
@@ -165,21 +153,66 @@ function updPinPos() {
         fromNode = stringLayer.findOne("#" + string.from);
 })}*/
 
+/*upload image function, which just did not work either
 
+let browse = document.getElementById("upload");
+let uploadB = document.getElementById("uploadb");
+let uploaded = new Image();
+
+let imageLayer = new Konva.Layer();
+stage.add(imageLayer);
+
+uploadB.addEventListener("click", (e) => {
+    if (browse) {
+        browse.click();
+    }
+});
+
+browse.addEventListener("change", (e) => {
+    let pickedImage = browse.files[0];
+    pickedImage = new Konva.Image({
+    image: uploaded,
+    draggable: true
+    });
+    console.log(browse.files[0]);
+    uploaded.src = URL.createObjectURL(pickedImage);
+    uploaded.onload = function () {
+        console.log("loaded");
+    };
+    // uploaded.src = browse.value;
+    // ctx.drawImage(uploaded, 0, 0);
+});
+*/
+
+/* save function- could not implement, security issues when drawing data from stage
+function saveImg(dataURL, fileName) {
+    let link = document.createElement("a");
+    link.href = dataURL;
+    link.download = fileName;
+    link.click();
+    link.remove();
+};
+
+document.getElementById("save").addEventListener("click", () => {
+    let canvasCapture = canvas.toDataURL();
+    let dlName = "download.png";
+    saveImg(canvasCapture, dlName);
+});*/
 
 // Undo function
 /*
 let undoStack = [];
-let currentState = canvas.toDataURL();
+let redoStack = [];
+let currentState = stage.toDataURL();
 let undoLimit = 5;
 function saveUndoState() {
     if(undoStack.length === undoLimit) {
         undoStack.shift();
     }
     undoStack.push(currentState);
-    currentState = canvas.toDataURL();
+    currentState = stage.toDataURL();
 }
-const ctx = canvas.getContext("2d");
+
 ctx.globalCompositeOperation = "source-over";
 function drawDataURLToCanvas(imgDataURL) {
     let img2Draw = new Image();
@@ -201,8 +234,5 @@ function undo() {
 }
 document.getElementById("undo").addEventListener("click", () => {
     undo();
-});*/
-
-
-
-// importing images from input=file ???
+});
+*/
