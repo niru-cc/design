@@ -1,11 +1,19 @@
 *{
     box-sizing: border-box;
-    margin:0
+    margin:0;
+    font-family: 'Courier Prime', Courier, monospace;
 }
-:root{
-    --col-01:black;
-    --col-02:white;
-    --col-03:rgb(65, 65, 118);
-    --col-04:rgb(50, 110, 70);
-    --border:single lrem var(--col02);
+
+body {
+    margin: 30px;
+    background-color: blanchedalmond;
+}
+
+h1 {
+    margin-bottom: 15px;
+}
+
+p {
+    margin-top: 7px;
+    margin-bottom: 10px;
 }
