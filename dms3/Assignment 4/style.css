@@ -43,3 +43,10 @@ img {
     height: 150px;
     margin-right: 50px;
 }
+
+#small {
+    height: 250px;
+}
+#btn {
+    height: 200px;
+}
