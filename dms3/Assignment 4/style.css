@@ -6,6 +6,8 @@
 
 body {
     margin: 30px;
+    margin-left: 5%;
+    margin-right: 5%;
     background-color: blanchedalmond;
 }
 
@@ -20,4 +22,25 @@ h2 {
 p {
     margin-top: 6px;
     margin-bottom: 12px;
+}
+
+div {
+    display: flex;
+    width: 80%;
+    border: 5px solid whitesmoke;
+    margin: 20px;
+    padding: 20px;
+    height: 450px;
+    justify-content: center;
+    align-items: center;
+}
+
+#tech1 {
+    width: auto;
+    height: 150px;
+    margin-right: 50px;
+}
+
+#tech2 {
+    height: 400px;
 }
