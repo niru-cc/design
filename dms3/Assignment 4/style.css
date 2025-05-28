@@ -26,7 +26,7 @@ p {
 
 div {
     display: flex;
-    width: 80%;
+    width: auto;
     border: 5px solid whitesmoke;
     margin: 20px;
     padding: 20px;
@@ -35,12 +35,11 @@ div {
     align-items: center;
 }
 
-#tech1 {
-    width: auto;
-    height: 150px;
-    margin-right: 50px;
+img {
+    max-height: 400px;
 }
 
-#tech2 {
-    height: 400px;
+#tech1 {
+    height: 150px;
+    margin-right: 50px;
 }
